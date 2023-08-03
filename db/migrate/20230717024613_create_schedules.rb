@@ -5,7 +5,7 @@ class CreateSchedules < ActiveRecord::Migration[7.0]
       t.datetime :startdate
       t.datetime :enddate
       t.boolean :allday
-      t.timestamp :update
+      t.timestamp :renewal
 
       t.timestamps
     end
