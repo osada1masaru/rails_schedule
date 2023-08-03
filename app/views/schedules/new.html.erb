@@ -1,6 +1,6 @@
 <h3>新規作成</h3>
 
-<%= flash.now[:alert] %>
+<%= render"shared/error", obj:@schedule %>
 
 <%= form_with model: @schedule do |f| %>
   <table>
