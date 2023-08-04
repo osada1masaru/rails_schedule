@@ -1,5 +1,9 @@
 <h3>編集</h3>
 
+<% if flash.now[:alert] %>
+  <p class="alert"><%= flash.now[:alert] %></p>
+<% end %>
+
 <%= form_with model: @schedule do |f| %>
   <table>
     <tr>

@@ -10,15 +10,15 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(params.require(:schedule).permit(:title, :startdate, :enddate, :allday, :memo,))
-    # binding.phy
+    # binding.pry
     if @schedule.save
-      # binding.phy
+      # binding.pry
       flash[:notice] = "スケジュールを登録しました"
       redirect_to :schedules
     else
-      # binding.phy
+      # binding.pry
       flash.now[:alert] = "スケジュールの登録に失敗しました"
-      render "new"
+      render "new",status: :unprocessable_entity
     end
   end
 
@@ -36,7 +36,8 @@ class SchedulesController < ApplicationController
       flash[:notice] = "スケジュール更新しました"
       redirect_to :schedules
     else
-      render "edit"
+      flash.now[:alert] = "スケジュールの更新に失敗しました"
+      render "edit",status: :unprocessable_entity
     end
   end
 

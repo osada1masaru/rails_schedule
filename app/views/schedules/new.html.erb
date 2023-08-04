@@ -1,6 +1,8 @@
 <h3>新規作成</h3>
-binding.pry
-<%= render "shared/error", obj:@schedule %>
+
+<% if flash.now[:alert] %>
+  <p class="alert"><%= flash.now[:alert] %></p>
+<% end %>
 
 <%= form_with model: @schedule do |f| %>
   <table>
